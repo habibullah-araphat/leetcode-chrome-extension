@@ -1,0 +1,12 @@
+{
+    "name": "LeetCode difficulty extension",
+    "version": "1.0",
+    "description": "Hide problem difficulty practising in leetcode",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "manifest_version": 2
+  }
+  
