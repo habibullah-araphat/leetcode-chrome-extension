@@ -1,6 +1,6 @@
 let removeDifficultyBtn = document.getElementById('removeDifficulty');
 
-chrome.storage.sync.get('removeDifficulty', function(data) {
+chrome.storage.local.get('removeDifficulty', function(data) {
     let buttonText = "";
     let scriptName = "";
     if(data.removeDifficulty==true){
@@ -18,8 +18,7 @@ chrome.storage.sync.get('removeDifficulty', function(data) {
     });
 });
 removeDifficultyBtn.onclick = function(element) {
-    let btnVal = element.textContent;
-    chrome.storage.sync.get('removeDifficulty', function(data) {
+    chrome.storage.local.get('removeDifficulty', function(data) {
         let buttonText = "";
         let scriptName = "";
         data.removeDifficulty = !data.removeDifficulty;
@@ -31,7 +30,7 @@ removeDifficultyBtn.onclick = function(element) {
             scriptName = "show.js";
         }
         removeDifficultyBtn.textContent = buttonText;
-        chrome.storage.sync.set({removeDifficulty: data.removeDifficulty}, function() {
+        chrome.storage.local.set({removeDifficulty: data.removeDifficulty}, function() {
             console.log('Next button val: '+buttonText);
         });
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

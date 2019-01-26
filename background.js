@@ -1,7 +1,7 @@
 'use strict';
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({removeDifficulty: true}, function() {
+  chrome.storage.local.set({removeDifficulty: true}, function() {
     console.log('Hide problem difficulty activated.');
   });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {

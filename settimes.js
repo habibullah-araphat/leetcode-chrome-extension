@@ -1,5 +1,5 @@
 var refreshIntervalId = setInterval(function(){
-    chrome.storage.sync.get('removeDifficulty', function(data) {
+    chrome.storage.local.get('removeDifficulty', function(data) {
         let scriptName = "";
         if(data.removeDifficulty==undefined){
             data.removeDifficulty = true;
@@ -12,9 +12,6 @@ var refreshIntervalId = setInterval(function(){
             var diffDivShow = document.querySelector("div[diff]");
             diffDivShow.style.visibility = "visible";
         }
-        chrome.storage.sync.set({removeDifficulty: data.removeDifficulty}, function() {
-            console.log('data.removeDifficulty:',data.removeDifficulty);
-        });
     });
 }, 500);
 
