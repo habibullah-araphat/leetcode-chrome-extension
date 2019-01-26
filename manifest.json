@@ -10,8 +10,8 @@
     "content_scripts": [
         {
           "matches": ["https://leetcode.com/problems/*"],
-          "js": ["remove.js"],
-          "run_at": "document_idle"
+          "js": ["settimes.js"],
+          "run_at": "document_start"
         }
     ],
     "page_action": {
